@@ -1,5 +1,6 @@
-[![API Docs](https://img.shields.io/badge/API-Documentation-blue)](https://drive.google.com/file/d/1AzKx0_uN_ZgOejBKmKd71A354vDmbe6I/view)
-[![Schema](https://img.shields.io/badge/Database-Schema-green)](https://drive.google.com/file/d/1GCI1B-328aEcyr8KcmwdNvXgJcMlQW6E/view)
+https://drive.google.com/file/d/1AzKx0_uN_ZgOejBKmKd71A354vDmbe6I/view
+https://drive.google.com/file/d/1vzD7SGiYBFuxHCQLEU2shJ34rQiAY9Uk/view
+https://drive.google.com/file/d/1GCI1B-328aEcyr8KcmwdNvXgJcMlQW6E/view
 
 ### 🔐 AUTHENTICATION APIS
 1. Sign Up POST /auth/sign-up
@@ -11,15 +12,18 @@ Endpoint:
 Content-Type: application/json
 Request Body:
 
-***{
+```jsonc
+{
   "name": "John Doe",
   "email": "john@example.com",
   "password": "password123",
-  "role": "user"  // Optional, defaults to "user"
-}***
+  "role": "user"  
+}
+```
 Success Response (201 Created):
 
-***{
+```json
+{
   "success": true,
   "token": "eyJhbGciOiJIUzI1NiIs...",
   "data": {
@@ -29,7 +33,7 @@ Success Response (201 Created):
     "role": "user",
     "createdAt": "2024-01-15T10:30:00.000Z"
   }
-}***
+}```
 
 Error Responses:
 Status	Message	Description
@@ -48,13 +52,14 @@ POST http://localhost:5000/api/v1/auth/sign-in
 Content-Type: application/json
 Request Body:
 
+```json 
 {
   "email": "john@example.com",
   "password": "password123"
-}
+}```
 Success Response (200 OK):
 
-{
+```json{
   "success": true,
   "token": "eyJhbGciOiJIUzI1NiIs...",
   "data": {
@@ -64,7 +69,7 @@ Success Response (200 OK):
     "role": "user",
     "isActive": true
   }
-}
+}```
 Error Responses:
 
 Status	Message	Description
@@ -80,10 +85,11 @@ POST http://localhost:5000/api/v1/auth/sign-out
 Authorization: Bearer <token>
 Success Response (200 OK):
 
+```json 
 {
   "success": true,
   "message": "User signed out successfully"
-}
+}```
 ✅ TASK APIS
 Authentication Required for All Task APIs
 text
@@ -99,15 +105,17 @@ Authorization: Bearer <token>
 Content-Type: application/json
 Request Body:
 
+```json
 {
   "title": "Complete project documentation",
   "description": "Write API docs and README",
   "status": "pending",        // Optional: pending, in-progress, completed
   "priority": "high",         // Optional: low, medium, high
   "dueDate": "2024-12-31"    // Optional: YYYY-MM-DD
-}
+}```
 Success Response (201 Created):
 
+```json
 {
   "success": true,
   "data": {
@@ -125,7 +133,7 @@ Success Response (201 Created):
     "createdAt": "2024-01-15T10:30:00.000Z",
     "updatedAt": "2024-01-15T10:30:00.000Z"
   }
-}
+}```
 2. Get All Tasks GET /task
 Retrieve tasks with optional filters.
 
@@ -147,6 +155,7 @@ Admins: See all tasks
 
 Success Response (200 OK):
 
+```json
 {
   "success": true,
   "count": 2,
@@ -164,7 +173,7 @@ Success Response (200 OK):
       "createdAt": "2024-01-15T10:30:00.000Z"
     }
   ]
-}
+}```
 3. Get Single Task GET /task/:id
 Retrieve a specific task by ID.
 
@@ -175,6 +184,7 @@ GET http://localhost:5000/api/v1/task/65def789abc1234567890
 Authorization: Bearer <token>
 Success Response (200 OK):
 
+```json
 {
   "success": true,
   "data": {
@@ -192,7 +202,7 @@ Success Response (200 OK):
     "createdAt": "2024-01-15T10:30:00.000Z",
     "updatedAt": "2024-01-15T10:30:00.000Z"
   }
-}
+}```
 Error Responses:
 
 Status	Message	Description
@@ -209,13 +219,15 @@ Authorization: Bearer <token>
 Content-Type: application/json
 Request Body (Partial updates allowed):
 
+```json
 {
   "title": "Updated task title",
   "status": "in-progress",
   "priority": "medium"
-}
+}```
 Success Response (200 OK):
 
+```json
 {
   "success": true,
   "data": {
@@ -226,7 +238,7 @@ Success Response (200 OK):
     "updatedAt": "2024-01-15T11:30:00.000Z"
   },
   "message": "Task updated successfully"
-}
+}```
 5. Delete Task DELETE /task/:id
 Delete a task.
 
@@ -237,10 +249,11 @@ DELETE http://localhost:5000/api/v1/task/65def789abc1234567890
 Authorization: Bearer <token>
 Success Response (200 OK):
 
+```json
 {
   "success": true,
   "message": "Task deleted successfully"
-}
+}```
 6. Get Task Statistics GET /task/stats/summary
 Get task statistics (count by status and priority).
 
@@ -257,6 +270,7 @@ Admins: Stats for all tasks
 
 Success Response (200 OK):
 
+```json
 {
   "success": true,
   "data": {
@@ -272,12 +286,13 @@ Success Response (200 OK):
     ],
     "total": 10
   }
-}
+}```
 
 
 ### Postman Collection
 
 
+```json
 {
   "info": {
     "name": "TaskFlow API",
@@ -505,4 +520,4 @@ Success Response (200 OK):
       "type": "string"
     }
   ]
-}
+}```
