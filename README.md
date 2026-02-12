@@ -33,7 +33,8 @@ Success Response (201 Created):
     "role": "user",
     "createdAt": "2024-01-15T10:30:00.000Z"
   }
-}```
+}
+```
 
 Error Responses:
 Status	Message	Description
@@ -56,7 +57,8 @@ Request Body:
 {
   "email": "john@example.com",
   "password": "password123"
-}```
+}
+```
 Success Response (200 OK):
 
 ```json{
@@ -173,7 +175,8 @@ Success Response (200 OK):
       "createdAt": "2024-01-15T10:30:00.000Z"
     }
   ]
-}```
+}
+```
 3. Get Single Task GET /task/:id
 Retrieve a specific task by ID.
 
@@ -202,7 +205,8 @@ Success Response (200 OK):
     "createdAt": "2024-01-15T10:30:00.000Z",
     "updatedAt": "2024-01-15T10:30:00.000Z"
   }
-}```
+}
+```
 Error Responses:
 
 Status	Message	Description
@@ -224,7 +228,8 @@ Request Body (Partial updates allowed):
   "title": "Updated task title",
   "status": "in-progress",
   "priority": "medium"
-}```
+}
+```
 Success Response (200 OK):
 
 ```json
@@ -238,7 +243,8 @@ Success Response (200 OK):
     "updatedAt": "2024-01-15T11:30:00.000Z"
   },
   "message": "Task updated successfully"
-}```
+}
+```
 5. Delete Task DELETE /task/:id
 Delete a task.
 
@@ -253,7 +259,8 @@ Success Response (200 OK):
 {
   "success": true,
   "message": "Task deleted successfully"
-}```
+}
+```
 6. Get Task Statistics GET /task/stats/summary
 Get task statistics (count by status and priority).
 
@@ -286,7 +293,8 @@ Success Response (200 OK):
     ],
     "total": 10
   }
-}```
+}
+```
 
 
 ### Postman Collection
@@ -520,4 +528,5 @@ Success Response (200 OK):
       "type": "string"
     }
   ]
-}```
+}
+```
